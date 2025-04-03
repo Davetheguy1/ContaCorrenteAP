@@ -27,10 +27,10 @@ namespace ContaCorrenteAP
             AccountHistory.Add($"Deposito: +R${value}");
         }
 
-        public void TransferTo(Account userAccount2, double value)
+        public void TransferTo(Account targetAccount, double value)
         {
-            Withdrawal(value);
-            userAccount2.Deposit(value);
+            this.Withdrawal(value); // Withdrawal roda no objeto que chama o método (userAccount1)
+            targetAccount.Deposit(value); // Deposit roda no objeto destino (qualquer um que seja passado como paramêtro)
             
         }
 
@@ -43,5 +43,6 @@ namespace ContaCorrenteAP
             Console.WriteLine("Pressione Enter para Sair.\n");
             Console.ReadLine();
         }
-    }
+    } 
+
 }
